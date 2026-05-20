@@ -1,0 +1,29 @@
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111827;
+  color: #f3f4f6;
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.app-title {
+  color: #3b82f6;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.app-subtitle {
+  color: #9ca3af;
+  font-size: 1rem;
+}
