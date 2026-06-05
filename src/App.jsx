@@ -1,10 +1,55 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import Dashboard from './screens/Dashboard'
+import Login from './screens/Login'
+import ProtectedRoute from './components/ProtectedRoute'
+import LiveWorkout from './screens/LiveWorkout'
+import History from './screens/History'
+import Navbar from './components/NavBar'
+import './App.css'
 
 export default function App() {
   return (
-    <div className="app-container">
-      <h1 className='app-title'>GainsCloud App</h1>
-      <p className="app-subtitle">Estructura base lista. Próxima parada: Sistema de Login y Rutas.</p>
-    </div>
+      <div className='app-container'>
+        <Navbar />
+        <main className='main-content'>
+
+          <Routes>
+            {/* Ruta del Login */}
+            <Route path="/login" element={
+              localStorage.getItem('token') ? <Navigate to="/dashboard" replace /> : <Login />
+            } />
+
+            {/* Ruta PROTEGIDA del Dashboard*/}
+            <Route path="/dashboard" element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
+
+            {/* Ruta dinámica del entrenamiento*/}
+            <Route path="/workout/:id" element={
+              <ProtectedRoute>
+                <LiveWorkout />
+              </ProtectedRoute>
+            }
+            />
+
+            {/*Ruta del historial*/}
+            <Route path="/history" element={
+              <ProtectedRoute>
+                <History />
+              </ProtectedRoute>
+            }
+            />
+
+            {/*Ruta por defecto*/}
+            <Route path="*" element={
+              localStorage.getItem('token') ? <Navigate to="/dashboard" replace /> : <Navigate to="/login" />
+            } />
+
+          </Routes>
+        </main>
+      </div>
   )
 }

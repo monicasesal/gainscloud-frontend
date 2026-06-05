@@ -7,7 +7,7 @@ const getHeaders = () => {
         'Content-Type': 'application/json',
         'Authorization': token ? `Bearer ${token}` : ''
     }
-}
+} 
 
 export const authService = {
     login: async (email, password) => {
@@ -45,11 +45,11 @@ export const workoutService = {
     },
 
     //Guardar o actualizar una serie al pulsar el Check
-    logSet: async (setDetails) => {
+    logSet: async (setData) => {
         const response = await fetch(`${API_URL}/workouts/set`, {
             method: 'POST',
             headers: getHeaders(),
-            body: JSON.stringify(setDetails)
+            body: JSON.stringify(setData)// Envía workout_log_id, exercise_name, weight, reps, is_completed
         })
         const data = await response.json()
         if (!response.ok) throw new Error(data.error)
@@ -65,6 +65,51 @@ export const workoutService = {
         })
         const data = await response.json()
         if (!response.ok) throw new Error(data.error)
+        return data
+    },
+
+    //history
+    getHistory: async () => {
+        const response = await fetch(`${API_URL}/workouts/history`, {
+            method: 'GET',
+            headers: getHeaders()
+        })
+        const data = await response.json()
+        if (!response.ok) throw new Error (data.error || 'Error al traer el historial')
+        return data
+    },
+
+    //borrar
+    deleteSet: async (setId) => {
+        const response = await fetch(`${API_URL}/workouts/set/${setId}`, {
+            method: 'DELETE',
+            headers: getHeaders()
+        })
+
+        const data = await response.json()
+        if (!response.ok) throw new Error(data.error || 'Error al eliminar la serie')
+        return data
+    },
+
+    getExerciseCatalog: async () => {
+        const response = await fetch(`${API_URL}/workouts/exercises/catalog`, {
+            method: 'GET',
+            headers: getHeaders()
+        })
+
+        const data = await response.json()
+        if (!response.ok) throw new Error(data.error || 'Error al traer el catálogo')
+        return data
+    },
+
+    deleteWorkout: async (workoutId) => {
+        const response = await fetch(`${API_URL}/workouts/${workoutId}`, {
+            method: 'DELETE',
+            headers: getHeaders()
+        })
+
+        const data = await response.json()
+        if (!response.ok) throw new Error(data.error || 'Error al eliminar entrenamiento')
         return data
     }
 }

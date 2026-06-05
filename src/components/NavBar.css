@@ -1,0 +1,66 @@
+
+.app-navbar {
+    display: flex;
+    justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, #16161f, #0d0d11); /* Degradado oscuro */
+  padding: 15px 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: black;
+    padding-right: 20px;
+    border-radius: 20px;
+}
+
+.navbar-logo-img {
+  height: 100px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  background-color: black;
+  border-radius: 20px;
+}
+
+.gainscloud-logo {
+    color:#fb6901
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    color: var(--texto-gris, #9ca3af);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 25px;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-logout {
+  background: transparent;
+  border: none;
+  color: #ff4d4d;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.nav-logout:hover {
+  text-decoration: underline;
+}

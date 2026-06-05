@@ -1,0 +1,112 @@
+/* src/screens/LiveWorkout/LiveWorkout.css */
+
+.workout-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.workout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  background: var(--bg-tarjetas);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--sombra-relieve);
+}
+
+.workout-main-title {
+  margin: 0;
+  color: var(--texto-blanco);
+}
+
+.timer {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-marca); /* Cronómetro en naranja */
+}
+
+/* Buscador de ejercicios */
+.add-exercise-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.exercise-input {
+  flex: 1;
+  background: var(--bg-inputs);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--texto-blanco);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.2s;
+}
+
+.exercise-input:focus {
+  outline: none;
+  border-color: var(--color-marca);
+  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
+}
+
+.btn-add {
+  background: transparent;
+  color: var(--color-marca);
+  border: 2px solid var(--color-marca);
+  font-weight: bold;
+  padding: 0 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-add:hover {
+  background: var(--color-marca);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+}
+
+/* Contenedor de los botones de acción abajo (Finalizar / Cancelar) */
+.workout-actions-footer {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn-finish {
+  flex: 1;
+  background: linear-gradient(135deg, var(--color-marca), #ff8800);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.btn-finish:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
+}
+
+.btn-cancel {
+  background: var(--bg-inputs);
+  color: #ff4d4d;
+  border: 1px solid rgba(255, 77, 77, 0.2);
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background: #ff4d4d;
+  color: white;
+}

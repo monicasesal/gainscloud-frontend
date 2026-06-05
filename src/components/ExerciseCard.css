@@ -1,0 +1,51 @@
+/* src/components/ExerciseCard.css */
+.exercise-card {
+  background: #1f2937;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  border: 1px solid #374151;
+}
+
+.exercise-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.exercise-title {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.btn-remove-exercise {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.btn-remove-exercise:hover {
+  color: #ef4444;
+}
+
+.btn-add-set {
+  width: 100%;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px dashed #3b82f6;
+  color: #3b82f6;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+.btn-add-set:hover {
+  background: rgba(59, 130, 246, 0.2);
+}

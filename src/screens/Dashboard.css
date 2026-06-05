@@ -1,0 +1,141 @@
+/* src/screens/Dashboard.css */
+.dashboard-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #374151;
+  padding-bottom: 15px;
+}
+
+.dashboard-card {
+  background-color: #1f2937;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.dashboard-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.dashboard-card p {
+  color: #9ca3af;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+}
+
+.btn-logout {
+  background-color: transparent;
+  color: #9ca3af;
+  border: 1px solid #4b5563;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.btn-logout:hover {
+  color: #f87171;
+  border-color: #ef4444;
+}
+
+/* Contenedor de los botones de acción abajo */
+.workout-actions-footer {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn-finish {
+  flex: 1;
+  background: linear-gradient(135deg, var(--color-marca), #ff8800); /* Gradiente para dar volumen */
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3); /* Sombra naranja brillante */
+  transition: all 0.2s ease;
+}
+
+.btn-finish:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
+}
+
+.btn-cancel {
+  background: #22222b;
+  color: #ff4d4d;
+  border: 1px solid rgba(255, 77, 77, 0.2);
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background: #ff4d4d;
+  color: white;
+}
+
+/* Dale volumen a la caja del input del buscador */
+.exercise-input {
+  background: var(--bg-inputs);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.2s;
+}
+
+.exercise-input:focus {
+  outline: none;
+  border-color: var(--color-marca);
+  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
+}
+
+.btn-add {
+  background: transparent;
+  color: var(--color-marca);
+  border: 2px solid var(--color-marca);
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-add:hover {
+  background: var(--color-marca);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+}

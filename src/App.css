@@ -1,29 +1,14 @@
-/*reset*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* src/App.css */
 
-body {
-  background-color: #111827;
-  color: #f3f4f6;
-  font-family: system-ui, -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
+/* Contenedor general para envolver las pantallas de la app */
 .app-container {
   min-height: 100vh;
+  background-color: var(--bg-principal); /* Fuerza el uso del negro antracita */
+}
+
+/* Un contenedor para centrar el contenido de las pantallas y que no se pegue a los bordes */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
-}
-
-.app-title {
-  color: #3b82f6;
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.app-subtitle {
-  color: #9ca3af;
-  font-size: 1rem;
 }
