@@ -1,66 +1,88 @@
-
-.app-navbar {
-    display: flex;
-    justify-content: space-between;
+/* Contenedor principal de la barra */
+.navbar {
+  display: flex;
+  justify-content: space-between; 
   align-items: center;
-  background: linear-gradient(to bottom, #16161f, #0d0d11); /* Degradado oscuro */
+  background: var(--bg-tarjetas);
   padding: 15px 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  border-bottom: var(--borde-sutil);
+  box-shadow: var(--sombra-relieve);
 }
 
-.navbar-brand {
-    font-size: 20px;
-    font-weight: 800;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background-color: black;
-    padding-right: 20px;
-    border-radius: 20px;
-}
-
-.navbar-logo-img {
-  height: 100px;
-  width: auto;
-  display: block;
-  object-fit: contain;
-  background-color: black;
-  border-radius: 20px;
-}
-
-.gainscloud-logo {
-    color:#fb6901
-}
-
-.navbar-links {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.nav-link {
-    color: var(--texto-gris, #9ca3af);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 25px;
-    transition: color 0.2s;
-}
-
-.nav-link:hover {
-  color: white;
-}
-
-.nav-logout {
-  background: transparent;
-  border: none;
-  color: #ff4d4d;
+/* El área del logotipo */
+.navbar-logo {
   cursor: pointer;
-  font-weight: 500;
-  font-size: 20px;
+  display: flex;       
+  align-items: center; 
+  gap: 10px;         
 }
 
-.nav-logout:hover {
-  text-decoration: underline;
+/* TAMAÑO DEL LOGO */
+.navbar-logo img {
+  height: 65px;       
+  width: auto;        
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--color-marca); 
+  letter-spacing: 0.5px;
+}
+
+.navbar-logo {
+  cursor: pointer;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--color-marca); 
+  letter-spacing: 0.5px;
+}
+
+/* Contenedor de links centrales (Home e Historial) */
+.navbar-links {
+  display: flex;
+  gap: 15px; 
+}
+
+/* Contenedor del perfil y salir (Derecha) */
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+}
+
+/* Estilo base para TODOS los botones de la barra */
+.nav-btn {
+  background: transparent;
+  color: var(--texto-gris);
+  border: none;
+  padding: 10px 16px;
+  font-size: 23px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  transition: all 0.2s ease;
+}
+
+/* Hover general */
+.nav-btn:hover {
+  color: var(--texto-blanco);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Estilo exclusivo para el botón de salir si quieres que destaque en rojo sutil */
+.btn-logout-nav {
+  color: #ff4d4d;
+}
+
+.btn-logout-nav:hover {
+  background: rgba(255, 77, 77, 0.1);
+  color: #ff3333;
 }

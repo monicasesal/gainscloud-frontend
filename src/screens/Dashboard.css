@@ -1,141 +1,215 @@
-/* src/screens/Dashboard.css */
+/* src/screens/Dashboard/Dashboard.css */
+
+/* Contenedor general */
 .dashboard-container {
-  max-width: 600px;
+  max-width: 900px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 0 20px;
 }
 
+/* Cabecera principal */
 .dashboard-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
-  border-bottom: 1px solid #374151;
-  padding-bottom: 15px;
-}
-
-.dashboard-card {
-  background-color: #1f2937;
+  flex-wrap: wrap; /* Por si en pantallas pequeñas se amontona, se baje solo */
+  gap: 20px;
+  background: var(--bg-tarjetas);
+  padding: 25px;
   border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  border: var(--borde-sutil);
+  box-shadow: var(--sombra-relieve);
+  margin-bottom: 40px;
 }
 
-.dashboard-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: #ffffff;
+/* Texto del saludo */
+.header-text h2 {
+  font-size: 24px;
+  color: var(--texto-blanco);
+  margin: 0 0 5px 0;
 }
 
-.dashboard-card p {
-  color: #9ca3af;
-  margin-bottom: 20px;
-  font-size: 0.95rem;
+.header-text p {
+  color: var(--texto-gris);
+  margin: 0;
+  font-size: 14px;
 }
 
-.btn-primary {
-  background-color: #3b82f6;
+/* Contenedor de acciones (Botones de la derecha) */
+.dashboard-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* BOTÓN 1: Empezar Entrenamiento (Naranja Premium) */
+.btn-start-workout {
+  background: linear-gradient(135deg, var(--color-marca), #ff8800);
   color: white;
   border: none;
   padding: 12px 24px;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.btn-primary:hover {
-  background-color: #2563eb;
-}
-
-.btn-logout {
-  background-color: transparent;
-  color: #9ca3af;
-  border: 1px solid #4b5563;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.85rem;
-}
-
-.btn-logout:hover {
-  color: #f87171;
-  border-color: #ef4444;
-}
-
-/* Contenedor de los botones de acción abajo */
-.workout-actions-footer {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.btn-finish {
-  flex: 1;
-  background: linear-gradient(135deg, var(--color-marca), #ff8800); /* Gradiente para dar volumen */
-  color: white;
-  border: none;
-  padding: 14px;
   border-radius: 8px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3); /* Sombra naranja brillante */
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
   transition: all 0.2s ease;
 }
 
-.btn-finish:hover {
+.btn-start-workout:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
 }
 
-.btn-cancel {
-  background: #22222b;
-  color: #ff4d4d;
-  border: 1px solid rgba(255, 77, 77, 0.2);
-  padding: 14px 20px;
+/* BOTÓN 2: Ver historial (Fondo oscuro integrado) */
+.btn-history-inline {
+  background: var(--bg-inputs);
+  color: var(--texto-blanco);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 20px;
   border-radius: 8px;
-  font-weight: bold;
+  font-weight: 500;
+  font-size: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.btn-cancel:hover {
-  background: #ff4d4d;
-  color: white;
+.btn-history-inline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--color-marca); /* Pequeño destello naranja al pasar el ratón */
+  transform: translateY(-1px);
 }
 
-/* Dale volumen a la caja del input del buscador */
-.exercise-input {
-  background: var(--bg-inputs);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: white;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 15px;
-  transition: all 0.2s;
-}
-
-.exercise-input:focus {
-  outline: none;
-  border-color: var(--color-marca);
-  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
-}
-
-.btn-add {
+/* BOTÓN 3: Cerrar sesión (Estilo enlace/limpio) */
+.btn-logout-inline {
   background: transparent;
-  color: var(--color-marca);
-  border: 2px solid var(--color-marca);
-  font-weight: bold;
-  border-radius: 8px;
+  color: #ff4d4d;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
   cursor: pointer;
-  transition: all 0.2s;
+  padding: 10px;
+  transition: color 0.2s ease;
 }
 
-.btn-add:hover {
-  background: var(--color-marca);
-  color: white;
-  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+.btn-logout-inline:hover {
+  color: #ff3333;
+  text-decoration: underline;
+}
+
+/* ==========================================
+   SECCIÓN DE ESTADÍSTICAS
+   ========================================== */
+
+/* Grid que se adapta solo (2 columnas en PC, 1 en móvil) */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Tarjeta individual */
+.stat-card {
+  background: var(--bg-tarjetas);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: var(--sombra-relieve);
+  border: 1px solid rgba(255, 255, 255, 0.01);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 107, 0, 0.2); /* Borde sutil naranja al hacer hover */
+}
+
+/* Iconos de las tarjetas */
+.stat-icon {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* Títulos de las tarjetas (Sesiones, Volumen...) */
+.stat-card h3 {
+  font-size: 13px;
+  color: var(--texto-gris);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0 0 10px 0;
+}
+
+/* Números grandes en naranja neón */
+.stat-number {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--color-marca);
+  margin: 0;
+  text-shadow: 0 0 20px rgba(255, 107, 0, 0.1); /* Efecto de brillo sutil en el número */
+}
+
+/* ==========================================
+   🚨 BANNER DE REANUDACIÓN EN EL DASHBOARD
+   ========================================== */
+
+.resume-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 140, 0, 0.08); /* Fondo naranja super sutil integrado */
+  border: 1px solid rgba(255, 140, 0, 0.25);
+  border-radius: 12px;
+  padding: 16px 24px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.banner-icon {
+  font-size: 24px;
+}
+
+.banner-content h4 {
+  color: #fff;
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.banner-content p {
+  color: var(--texto-gris);
+  margin: 0;
+  font-size: 13px;
+}
+
+/* Botón llamativo del Banner */
+.btn-banner-resume {
+  background: #ff8c00;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.btn-banner-resume:hover {
+  background: #ff9d24;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(255, 140, 0, 0.35);
+}
+
+.btn-banner-resume:active {
+  transform: translateY(0);
 }

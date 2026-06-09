@@ -155,3 +155,74 @@
 .btn-delete-workout:active {
   transform: translateY(0);
 }
+
+/* Modificación para resaltar la tarjeta si está activa */
+.history-card.card-in-progress {
+  border-color: rgba(255, 140, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(255, 140, 0, 0.05);
+}
+
+/* Insignia en color naranja para "En Proceso" */
+.history-badge.badge-progress {
+  background: rgba(255, 140, 0, 0.15);
+  color: #ff8c00;
+}
+
+/* Animación sutil de pulso para simular que está "en vivo" */
+.live-pulse {
+  color: #ff8c00 !important;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* BOTÓN NUEVO: Reanudar entrenamiento (Naranja Premium integrado) */
+.btn-resume-workout {
+  background: rgba(255, 140, 0, 0.15);
+  color: #ff8c00;
+  border: 1px solid rgba(255, 140, 0, 0.3);
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-resume-workout:hover {
+  background: #ff8c00;
+  color: #fff;
+  border-color: #ff8c00;
+  box-shadow: 0 0 12px rgba(255, 140, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   📊 TARJETA DE ANALÍTICAS Y GRÁFICOS (CHART.JS)
+   ========================================================================== */
+
+.analytics-card {
+  background: #1e1e24;
+  border: 1px solid #2d2d35;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.analytics-card-title {
+  color: #fff;
+  font-size: 16px;
+  margin: 0 0 4px 0;
+  font-weight: 600;
+}
+
+.analytics-card-subtitle {
+  color: #a0a0ab;
+  font-size: 13px;
+  margin: 0 0 20px 0;
+}

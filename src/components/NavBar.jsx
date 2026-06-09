@@ -12,17 +12,32 @@ export default function NavBar() {
     }
 
     return (
-        <nav className='app-navbar'>
-            <div className='navbar-brand' onClick={() => navigate('/dashboard')}>
-                <img src={logoImg} alt="GainsCloud logo" className='navbar-logo-img' />
-                <p className='gainscloud-logo'>GainsCloud</p>
-            </div>
-            <div className='navbar-links'>
-                <Link to='/dashboard' className='nav-link'>🏠 Home</Link>
-                <Link to='/history' className='nav-link'>📜 Historial</Link>
-                <button onClick={handleLogout} className='nav-logout'>🚪 Salir</button>
-            </div>
+        <nav className="navbar">
+                {/* logotipo a la izquierda */}
+                <div className="navbar-logo" onClick={() => navigate('/')}>
+                    <img src={logoImg} alt="GainsCloud Logo" />
+                    <span className="logo-text">GainsCloud</span>
+                </div>
 
-        </nav>
+                {/*Botones de navegación principales*/}
+                <div className="navbar-links">
+                    <button onClick={() => navigate('/')} className="nav-btn">
+                        🏠 Home
+                    </button>
+                    <button onClick={() => navigate('/history')} className="nav-btn">
+                        📜 Historial
+                    </button>
+                </div>
+
+                {/*Acciones del usuario*/}
+                <div className="navbar-user">
+                    <button onClick={() => navigate('/perfil')} className="nav-btn">
+                        👤 Perfil
+                    </button>
+                    <button onClick={handleLogout} className="nav-btn btn-logout-nav">
+                        🚪 Salir
+                    </button>
+                </div>
+            </nav>    
     )
 }

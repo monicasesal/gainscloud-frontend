@@ -6,6 +6,8 @@ import ProtectedRoute from './components/ProtectedRoute'
 import LiveWorkout from './screens/LiveWorkout'
 import History from './screens/History'
 import Navbar from './components/NavBar'
+import Perfil from './screens/Perfil'
+
 import './App.css'
 
 export default function App() {
@@ -47,6 +49,15 @@ export default function App() {
             <Route path="*" element={
               localStorage.getItem('token') ? <Navigate to="/dashboard" replace /> : <Navigate to="/login" />
             } />
+
+            {/*Ruta del perfil*/}
+            <Route path="/perfil" element={
+              <ProtectedRoute>
+                <Perfil />
+              </ProtectedRoute>
+            }
+            
+            />
 
           </Routes>
         </main>

@@ -111,6 +111,56 @@ export const workoutService = {
         const data = await response.json()
         if (!response.ok) throw new Error(data.error || 'Error al eliminar entrenamiento')
         return data
+    },
+
+    getStats: async () => {
+        const response = await fetch(`${API_URL}/workouts/stats`, {
+            method: 'GET',
+            headers: getHeaders()
+        })
+
+        if (!response.ok) throw new Error('No se pudieron cargar las estadísticas')
+
+        const data = await response.json()
+        return data
+    },
+
+    getVolumeProgression: async () => {
+        const response = await fetch(`${API_URL}/workouts/volume-progression`, {
+            method: 'GET',
+            headers: getHeaders()
+        })
+
+        if (!response.ok) throw new Error('No se pudo cargar la progresión de volumen')
+        
+        const data = await response.json()
+        return data
+    }
+}
+
+export const userService = {
+    getProfile: async () => {
+        const response = await fetch(`${API_URL}/auth/profile`, {
+            method: 'GET',
+            headers: getHeaders()
+        })
+
+        if (!response.ok) throw new Error('No se pudo cargar el perfil')
+
+        const data = await response.json()
+        return data
+    },
+
+    updateWeight: async (weight) => {
+        const response = await fetch(`${API_URL}/auth/update-weight`, {
+            method: 'PUT',
+            headers: getHeaders(),
+            body: JSON.stringify({weight: weight})
+        })
+
+        if (!response.ok) throw new Error('No se pudo actualizar el peso')
+        const data = await response.json()
+        return data
     }
 }
 
