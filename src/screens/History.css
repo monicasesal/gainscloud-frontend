@@ -108,7 +108,6 @@
   border-radius: 12px;
 }
 
-/* Spinner animado simple */
 .spinner {
   border: 4px solid rgba(255,255,255,0.1);
   width: 36px;
@@ -119,10 +118,6 @@
 }
 
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-/* ==========================================================================
-   🚨 NUEVOS ESTILOS PARA EL BOTÓN DE ELIMINAR REGISTRO 
-   ========================================================================== */
 
 .history-header-actions {
   display: flex;
@@ -156,19 +151,17 @@
   transform: translateY(0);
 }
 
-/* Modificación para resaltar la tarjeta si está activa */
 .history-card.card-in-progress {
   border-color: rgba(255, 140, 0, 0.4);
   box-shadow: 0 4px 20px rgba(255, 140, 0, 0.05);
 }
 
-/* Insignia en color naranja para "En Proceso" */
 .history-badge.badge-progress {
   background: rgba(255, 140, 0, 0.15);
   color: #ff8c00;
 }
 
-/* Animación sutil de pulso para simular que está "en vivo" */
+/* Animación de pulso para simular que está en vivo */
 .live-pulse {
   color: #ff8c00 !important;
   animation: pulse 2s infinite ease-in-out;
@@ -180,7 +173,6 @@
   100% { opacity: 0.6; }
 }
 
-/* BOTÓN NUEVO: Reanudar entrenamiento (Naranja Premium integrado) */
 .btn-resume-workout {
   background: rgba(255, 140, 0, 0.15);
   color: #ff8c00;
@@ -200,10 +192,6 @@
   box-shadow: 0 0 12px rgba(255, 140, 0, 0.3);
   transform: translateY(-1px);
 }
-
-/* ==========================================================================
-   📊 TARJETA DE ANALÍTICAS Y GRÁFICOS (CHART.JS)
-   ========================================================================== */
 
 .analytics-card {
   background: #1e1e24;

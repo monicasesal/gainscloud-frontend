@@ -7,6 +7,7 @@ import LiveWorkout from './screens/LiveWorkout'
 import History from './screens/History'
 import Navbar from './components/NavBar'
 import Perfil from './screens/Perfil'
+import Coach from './screens/Coach' 
 
 import './App.css'
 
@@ -54,6 +55,14 @@ export default function App() {
             <Route path="/perfil" element={
               <ProtectedRoute>
                 <Perfil />
+              </ProtectedRoute>
+            }
+            />
+
+            {/*Coach*/}
+            <Route path="/coach" element={
+              <ProtectedRoute>
+                <Coach />
               </ProtectedRoute>
             }
             

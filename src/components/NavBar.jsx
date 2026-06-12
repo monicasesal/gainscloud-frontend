@@ -27,6 +27,9 @@ export default function NavBar() {
                     <button onClick={() => navigate('/history')} className="nav-btn">
                         📜 Historial
                     </button>
+                    <button onClick={() => navigate('/coach')} className='nav-btn nav-btn-coach'>
+                        🤖 Coach IA
+                    </button>
                 </div>
 
                 {/*Acciones del usuario*/}

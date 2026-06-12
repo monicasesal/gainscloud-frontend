@@ -1,10 +1,8 @@
-/* src/screens/Login.css */
-
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 40px); /*restar el padding del contenedor padre*/
+  min-height: calc(100vh - 40px);
 }
 
 .login-card {

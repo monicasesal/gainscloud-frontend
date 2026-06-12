@@ -1,0 +1,98 @@
+.coach-container {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 85vh;
+}
+
+.coach-card {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 30px;
+    border: 1px solid #2e2e2e;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.coach-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.coach-icon {
+    font-size: 2rem;
+}
+
+.coach-title {
+    color: #ffffff;
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.coach-subtitle {
+    color: #aaaaaa;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.coach-button {
+    background-color: #10b981;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.coach-button:hover:not(.coach-button-disabled) {
+    background-color: #059669; 
+    transform: translateY(-1px);
+}
+
+.coach-button-disabled {
+    background-color: #065f46;
+    color: #888888;
+    cursor: not-allowed;
+}
+
+.coach-error-container {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.coach-error-text {
+    color: #f87171;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.coach-feedback-container {
+    background-color: #141414;
+    border-left: 4px solid #10b981; 
+    border-radius: 4px 8px 8px 4px;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.coach-feedback-title {
+    color: #10b981;
+    margin: 0 0 15px 0;
+    font-size: 1.2rem;
+}
+
+.coach-feedback-paragraph {
+    color: #e5e7eb;
+    line-height: 1.7;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}

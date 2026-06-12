@@ -1,18 +1,14 @@
-/* src/screens/Dashboard/Dashboard.css */
-
-/* Contenedor general */
 .dashboard-container {
   max-width: 900px;
   margin: 40px auto;
   padding: 0 20px;
 }
 
-/* Cabecera principal */
 .dashboard-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Por si en pantallas pequeñas se amontona, se baje solo */
+  flex-wrap: wrap;
   gap: 20px;
   background: var(--bg-tarjetas);
   padding: 25px;
@@ -22,7 +18,6 @@
   margin-bottom: 40px;
 }
 
-/* Texto del saludo */
 .header-text h2 {
   font-size: 24px;
   color: var(--texto-blanco);
@@ -35,7 +30,6 @@
   font-size: 14px;
 }
 
-/* Contenedor de acciones (Botones de la derecha) */
 .dashboard-actions {
   display: flex;
   align-items: center;
@@ -43,7 +37,6 @@
   flex-wrap: wrap;
 }
 
-/* BOTÓN 1: Empezar Entrenamiento (Naranja Premium) */
 .btn-start-workout {
   background: linear-gradient(135deg, var(--color-marca), #ff8800);
   color: white;
@@ -62,7 +55,6 @@
   box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
 }
 
-/* BOTÓN 2: Ver historial (Fondo oscuro integrado) */
 .btn-history-inline {
   background: var(--bg-inputs);
   color: var(--texto-blanco);
@@ -77,11 +69,10 @@
 
 .btn-history-inline:hover {
   background: rgba(255, 255, 255, 0.05);
-  border-color: var(--color-marca); /* Pequeño destello naranja al pasar el ratón */
+  border-color: var(--color-marca);
   transform: translateY(-1px);
 }
 
-/* BOTÓN 3: Cerrar sesión (Estilo enlace/limpio) */
 .btn-logout-inline {
   background: transparent;
   color: #ff4d4d;
@@ -98,10 +89,6 @@
   text-decoration: underline;
 }
 
-/* ==========================================
-   SECCIÓN DE ESTADÍSTICAS
-   ========================================== */
-
 /* Grid que se adapta solo (2 columnas en PC, 1 en móvil) */
 .stats-grid {
   display: grid;
@@ -109,7 +96,6 @@
   gap: 25px;
 }
 
-/* Tarjeta individual */
 .stat-card {
   background: var(--bg-tarjetas);
   border-radius: 12px;
@@ -122,17 +108,15 @@
 
 .stat-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 107, 0, 0.2); /* Borde sutil naranja al hacer hover */
+  border-color: rgba(255, 107, 0, 0.2); 
 }
 
-/* Iconos de las tarjetas */
 .stat-icon {
   font-size: 36px;
   display: block;
   margin-bottom: 15px;
 }
 
-/* Títulos de las tarjetas (Sesiones, Volumen...) */
 .stat-card h3 {
   font-size: 13px;
   color: var(--texto-gris);
@@ -141,24 +125,19 @@
   margin: 0 0 10px 0;
 }
 
-/* Números grandes en naranja neón */
 .stat-number {
   font-size: 42px;
   font-weight: 800;
   color: var(--color-marca);
   margin: 0;
-  text-shadow: 0 0 20px rgba(255, 107, 0, 0.1); /* Efecto de brillo sutil en el número */
+  text-shadow: 0 0 20px rgba(255, 107, 0, 0.1);
 }
-
-/* ==========================================
-   🚨 BANNER DE REANUDACIÓN EN EL DASHBOARD
-   ========================================== */
 
 .resume-banner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 140, 0, 0.08); /* Fondo naranja super sutil integrado */
+  background: rgba(255, 140, 0, 0.08);
   border: 1px solid rgba(255, 140, 0, 0.25);
   border-radius: 12px;
   padding: 16px 24px;
@@ -190,7 +169,6 @@
   font-size: 13px;
 }
 
-/* Botón llamativo del Banner */
 .btn-banner-resume {
   background: #ff8c00;
   color: #fff;

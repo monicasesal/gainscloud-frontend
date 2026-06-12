@@ -1,5 +1,3 @@
-/* src/screens/Perfil/Perfil.css */
-
 .profile-container {
   max-width: 500px;
   margin: 60px auto;
@@ -15,7 +13,6 @@
   box-shadow: var(--sombra-relieve);
 }
 
-/* El círculo del avatar con degradado naranja */
 .profile-avatar {
   width: 90px;
   height: 90px;
@@ -49,7 +46,6 @@
   margin: 20px 0;
 }
 
-/* Vista previa de datos futuros */
 .profile-stats-preview {
   display: flex;
   flex-direction: column;
@@ -75,7 +71,6 @@
   font-weight: bold;
 }
 
-/* Botón de logout más imponente */
 .btn-profile-logout {
   width: 100%;
   background: transparent;
@@ -93,7 +88,6 @@
   border-color: #ff4d4d;
 }
 
-/* Spinner y contenedor de carga del perfil */
 .profile-center {
   display: flex;
   justify-content: center;
@@ -101,7 +95,6 @@
   min-height: 400px;
 }
 
-/* Fila especial para el peso con soporte para el formulario */
 .preview-item-weight {
   display: flex;
   justify-content: space-between;
@@ -116,7 +109,6 @@
   color: var(--texto-gris);
 }
 
-/* Caja de visualización con el lápiz */
 .weight-display-box {
   display: flex;
   align-items: center;
@@ -136,7 +128,6 @@
   opacity: 1;
 }
 
-/* Caja del modo edición (Input + Boton guardar + Cancelar) */
 .weight-edit-box {
   display: flex;
   align-items: center;
@@ -154,7 +145,6 @@
   text-align: right;
 }
 
-/* Quitar flechas por defecto del input de tipo number */
 .profile-weight-input::-webkit-outer-spin-button,
 .profile-weight-input::-webkit-inner-spin-button {
   -webkit-appearance: none;

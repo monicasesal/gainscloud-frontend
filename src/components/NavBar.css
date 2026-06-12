@@ -1,4 +1,3 @@
-/* Contenedor principal de la barra */
 .navbar {
   display: flex;
   justify-content: space-between; 
@@ -9,7 +8,6 @@
   box-shadow: var(--sombra-relieve);
 }
 
-/* El área del logotipo */
 .navbar-logo {
   cursor: pointer;
   display: flex;       
@@ -17,7 +15,6 @@
   gap: 10px;         
 }
 
-/* TAMAÑO DEL LOGO */
 .navbar-logo img {
   height: 65px;       
   width: auto;        
@@ -42,20 +39,17 @@
   letter-spacing: 0.5px;
 }
 
-/* Contenedor de links centrales (Home e Historial) */
 .navbar-links {
   display: flex;
   gap: 15px; 
 }
 
-/* Contenedor del perfil y salir (Derecha) */
 .navbar-user {
   display: flex;
   align-items: center;
   gap: 15px; 
 }
 
-/* Estilo base para TODOS los botones de la barra */
 .nav-btn {
   background: transparent;
   color: var(--texto-gris);
@@ -71,13 +65,11 @@
   transition: all 0.2s ease;
 }
 
-/* Hover general */
 .nav-btn:hover {
   color: var(--texto-blanco);
   background: rgba(255, 255, 255, 0.04);
 }
 
-/* Estilo exclusivo para el botón de salir si quieres que destaque en rojo sutil */
 .btn-logout-nav {
   color: #ff4d4d;
 }
@@ -85,4 +77,13 @@
 .btn-logout-nav:hover {
   background: rgba(255, 77, 77, 0.1);
   color: #ff3333;
+}
+
+.nav-btn-coach {
+    color: #10b981 !important;
+    font-weight: bold;
+}
+
+.nav-btn-coach:hover {
+    background-color: rgba(16, 185, 129, 0.1) !important;
 }

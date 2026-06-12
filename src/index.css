@@ -1,14 +1,14 @@
 /* src/index.css */
 
 :root {
-  --bg-principal: #0d0d11;      /* Negro antracita muy oscuro para el fondo */
-  --bg-tarjetas: #16161f;       /* Gris oscuro con relieve para cajas y tarjetas */
-  --bg-inputs: #22222b;         /* Gris medio para inputs */
-  --color-marca: #ff6b00;       /* ¡NARANJA de marca! */
-  --color-marca-hover: #e05e00; /* Naranja un poco más oscuro para hovers */
+  --bg-principal: #0d0d11;
+  --bg-tarjetas: #16161f;
+  --bg-inputs: #22222b;
+  --color-marca: #ff6b00;
+  --color-marca-hover: #e05e00;
   --texto-blanco: #ffffff;
   --texto-gris: #9ca3af;
-  --sombra-relieve: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Da volumen */
+  --sombra-relieve: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 body {

@@ -164,4 +164,14 @@ export const userService = {
     }
 }
 
+export const getCoachFeedback = async () => {
+    const response = await fetch(`${API_URL}/ai/coach-feedback`, {
+        method: 'GET',
+        headers: getHeaders()
+    })
+    const data = await response.json()
+    if (!response.ok) throw new Error(data.error || 'Error al conectar con el coach')
+    return data
+}
+
 
