@@ -10,7 +10,7 @@ export default function ExerciseCard({exercise, onAddSet, onUpdateSet, onDeleteS
         <div className='exercise-card'>
             <div className='exercise-card-header'>
                 <h3 className='exercise-title'>{exercise.name}</h3>
-                <button onClick={() => onDeleteExercise(exercise.id)} className='btn-remove-exxercise'>
+                <button onClick={() => onDeleteExercise(exercise.id)} className='btn-remove-exercise'>
                     Borrar ejercicio
                 </button>
             </div>

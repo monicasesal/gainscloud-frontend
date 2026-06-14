@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import {useNavigate} from 'react-router-dom'
 import {authService} from '../services/api'
+import {useNavigate, Link} from 'react-router-dom'
 import './Login.css'
 
 export default function Login() {
@@ -30,20 +30,19 @@ export default function Login() {
     }
 
     return (
-        <div className='login-container'>
-            <div className='login-card'>
-                <h2 className='login-title'>¡Bienvenido de vuelta!</h2>
+        <div className='auth-container'>
+            <div className='auth-form'>
+                <h2>¡Bienvenido de vuelta!</h2>
                 <p className='login-subtitle'>Ingresa tus datos para registrar tus entrenamientos</p>
 
-                {error && <div className='error-message'>{error}</div>}
+                {error && <div className='error-msg'>{error}</div>}
 
-                <form className="login-form" onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className='form-group'>
                         <label htmlFor="email">Correo Electrónico</label>
                         <input 
                             type="email"
                             id="email"
-                            className='form-input'
                             placeholder='tu@correo.com'
                             value={email}
                             onChange={(e) => setEmail(e.target.value)} required
@@ -55,17 +54,19 @@ export default function Login() {
                         <input 
                             type="password" 
                             id="password"
-                            className='form-input'
                             placeholder='••••••••'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)} required
                         />
                     </div>
 
-                    <button type="submit" className='login-button' disabled={loading}>
+                    <button type="submit" className='btn-auth' disabled={loading}>
                         {loading ? 'Iniciando sesión...' : 'Entrar'}
                     </button>
-                    
+
+                    <p className="auth-switch">
+                        ¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link>
+                    </p>
                 </form>
             </div>
         </div>

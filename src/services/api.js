@@ -10,10 +10,22 @@ const getHeaders = () => {
 } 
 
 export const authService = {
+    register: async (username, email, password) => {
+        const response = await fetch(`${API_URL}/auth/register`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({username, email, password})
+        })
+        const data = await response.json()
+        if (!response.ok) throw new Error(data.error)
+
+        return data
+    },
+
     login: async (email, password) => {
         const response = await fetch(`${API_URL}/auth/login`, {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: getHeaders(),
             body: JSON.stringify({email,password})
         })
         const data = await response.json()
@@ -28,6 +40,21 @@ export const authService = {
     logout: () => {
         localStorage.removeItem('token')
         localStorage.removeItem('user')
+    },
+
+    updatePlan: async (newPlan) => {
+        const response = await fetch(`${API_URL}/auth/update-plan`, {
+            method: 'PUT',
+            headers: getHeaders(),
+            body: JSON.stringify({newPlan: newPlan})
+        })
+        const data = await response.json()
+        if (!response.ok) throw new Error(data.error || 'Error al cambiar el plan')
+
+        // actualizar 'user' en localStorage para que toda la app (incluido el ciber-coach) se entere del cambio
+        localStorage.setItem('user', JSON.stringify(data.user))
+
+        return data
     }
 }
 
@@ -92,13 +119,25 @@ export const workoutService = {
     },
 
     getExerciseCatalog: async () => {
-        const response = await fetch(`${API_URL}/workouts/exercises/catalog`, {
+        const response = await fetch(`${API_URL}/exercises`, {
             method: 'GET',
             headers: getHeaders()
         })
 
         const data = await response.json()
         if (!response.ok) throw new Error(data.error || 'Error al traer el catálogo')
+        return data
+    },
+
+    createExercise: async (name) => {
+        const response = await fetch(`${API_URL}/exercises`, { 
+            method: 'POST',
+            headers: getHeaders(),
+            body: JSON.stringify({name})
+        })
+
+        const data = await response.json()
+        if (!response.ok) throw new Error(data.error || 'Error al crear el ejercicio personalizado')
         return data
     },
 

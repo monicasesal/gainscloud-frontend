@@ -96,3 +96,132 @@
     font-size: 1rem;
     margin-bottom: 10px;
 }
+
+.coach-feedback-text strong {
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.coach-feedback-text p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.premium-lock-container {
+    background: #1a1a1a;
+    border: 2px dashed #ffb703;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.lock-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.btn-upgrade-premium {
+    background: linear-gradient(135deg, #ffb703, #fb8500);
+    color: #000;
+    font-weight: bold;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: transform 0.2s;
+}
+
+.btn-upgrade-premium:hover {
+    transform: scale(1.05);
+}
+
+.plan-badge {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: auto;
+}
+.plan-badge.free { background: #6c757d; color: white; }
+.plan-badge.premium { background: #ffb703; color: black; }
+
+.coach-locked-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.lock-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    animation: pulse 2s infinite;
+}
+
+.coach-locked-container h3 {
+    color: #1e293b;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.coach-locked-container p {
+    color: #64748b;
+    font-size: 1rem;
+    margin-bottom: 25px;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+.unlock-premium-btn {
+    background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+    color: #1e293b;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.unlock-premium-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(241, 196, 15, 0.45);
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+}
+
+.unlock-premium-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.btn-go-to-subscription {
+    background-color: #cbd5e1;
+    color: #1e293b;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.2s;
+}
+.btn-go-to-subscription:hover {
+    background-color: #94a3b8;
+}

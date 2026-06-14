@@ -10,3 +10,43 @@
   margin: 0 auto;
   padding: 20px;
 }
+
+.auth-simple-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px 10px 20px;
+  background-color: var(--bg-principal);
+}
+
+.auth-simple-header .navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.041);
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.2s, background 0.2s;
+}
+
+
+.auth-simple-header .navbar-logo:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.auth-simple-header .navbar-logo img {
+  height: 60px;
+  width: auto;
+  border-radius: 20px;
+}
+
+.auth-simple-header .logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-marca);
+  letter-spacing: -0.5px;
+}
+
