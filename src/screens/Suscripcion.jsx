@@ -17,13 +17,27 @@ export default function Suscripcion() {
     }, [])
 
     const handlePlanChange = async (newPlan) => {
+        let code = ''
+
+        if (newPlan === 'premium') {
+            code = prompt('Para testear el Plan Premium de demostración, introduce el código promocional.')
+        }
+
+        if (code === null) return
+        if (code.trim() === '') {
+            setMensaje('Error: el código promocional es obligatorio para el plan Premium')
+            return
+        }
+
         setLoading(true)
         setMensaje('')
+
         try {
             //simular pago
             await new Promise(resolve => setTimeout(resolve, 1500))
             
-            const data = await authService.updatePlan(newPlan)
+            const data = await authService.updatePlan(newPlan, code)
+
             setCurrentPlan(data.user.plan_type)
             setMensaje(`Ahora eres plan ${newPlan.toUpperCase()}`)
         } catch (err) {

@@ -42,11 +42,11 @@ export const authService = {
         localStorage.removeItem('user')
     },
 
-    updatePlan: async (newPlan) => {
+    updatePlan: async (newPlan, promoCode) => {
         const response = await fetch(`${API_URL}/auth/update-plan`, {
             method: 'PUT',
             headers: getHeaders(),
-            body: JSON.stringify({newPlan: newPlan})
+            body: JSON.stringify({newPlan: newPlan, promoCode: promoCode})
         })
         const data = await response.json()
         if (!response.ok) throw new Error(data.error || 'Error al cambiar el plan')
