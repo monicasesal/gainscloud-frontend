@@ -1,50 +1,58 @@
 .exercise-card {
-  background: #1f2937;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 20px;
-  border: 1px solid #374151;
+    background: var(--bg-tarjetas);
+    border-radius: 24px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: var(--sombra-relieve);
 }
 
 .exercise-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .exercise-title {
-  color: #ffffff;
-  font-size: 1.2rem;
-  margin: 0;
+    color: white;
+    margin: 0;
+    font-size: 1.3rem;
 }
 
 .btn-remove-exercise {
-  background: transparent;
-  border: none;
-  color: #9ca3af;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: color 0.2s;
-}
-
-.btn-remove-exercise:hover {
-  color: #ef4444;
+    background: rgba(255,68,68,.15);
+    color: #ff6666;
+    border: none;
+    border-radius: 14px;
+    padding: 10px 15px;
+    cursor: pointer;
 }
 
 .btn-add-set {
-  width: 100%;
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px dashed #3b82f6;
-  color: #3b82f6;
-  padding: 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 10px;
-  transition: background 0.2s;
+    width: 100%;
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 16px;
+    border: 2px dashed var(--color-marca);
+    background: transparent;
+    color: var(--color-marca);
+    font-weight: bold;
 }
 
 .btn-add-set:hover {
-  background: rgba(59, 130, 246, 0.2);
+    background: rgba(255,107,0,.1);
+}
+
+.exercise-card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .exercise-card-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
 }

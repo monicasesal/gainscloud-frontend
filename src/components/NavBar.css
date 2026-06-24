@@ -1,89 +1,94 @@
 .navbar {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  background: var(--bg-tarjetas);
-  padding: 15px 30px;
-  border-bottom: var(--borde-sutil);
-  box-shadow: var(--sombra-relieve);
-}
+  position: sticky;
+  top: 0;
+  z-index: 500;
 
-.navbar-logo {
-  cursor: pointer;
-  display: flex;       
-  align-items: center; 
-  gap: 10px;         
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 40px;
+
+  backdrop-filter: blur(20px);
+
+  background:
+    rgba(13,17,23,.85);
+
+  border-bottom:
+    1px solid rgba(255,255,255,.05);
 }
 
 .navbar-logo img {
-  height: 65px;       
-  width: auto;        
-  object-fit: contain;
+  height: 55px;
 }
 
 .logo-text {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 800;
-  color: var(--color-marca); 
-  letter-spacing: 0.5px;
-}
-
-.navbar-logo {
-  cursor: pointer;
-}
-
-.logo-text {
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--color-marca); 
-  letter-spacing: 0.5px;
-}
-
-.navbar-links {
-  display: flex;
-  gap: 15px; 
-}
-
-.navbar-user {
-  display: flex;
-  align-items: center;
-  gap: 15px; 
+  color: var(--color-marca);
 }
 
 .nav-btn {
-  background: transparent;
+  font-size: 15px;
+  padding: 12px 18px;
+  border-radius: 14px;
   color: var(--texto-gris);
-  border: none;
-  padding: 10px 16px;
-  font-size: 23px;
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px; 
-  transition: all 0.2s ease;
 }
 
 .nav-btn:hover {
-  color: var(--texto-blanco);
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.btn-logout-nav {
-  color: #ff4d4d;
-}
-
-.btn-logout-nav:hover {
-  background: rgba(255, 77, 77, 0.1);
-  color: #ff3333;
+  background: rgba(255,255,255,.05);
+  color: white;
 }
 
 .nav-btn-coach {
-    color: #10b981 !important;
-    font-weight: bold;
+  background: rgba(29,145,248,.12);
+  color: var(--color-secundario);
 }
 
-.nav-btn-coach:hover {
-    background-color: rgba(16, 185, 129, 0.1) !important;
+/*NavBar movil*/
+
+@media (max-width: 768px) {
+
+  .navbar {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    top: auto;
+
+    border-radius: 24px;
+
+    padding: 10px;
+
+    background: rgba(24,31,43,.95);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+      0 15px 40px rgba(0,0,0,.5);
+  }
+
+  .navbar-logo {
+    display: none;
+  }
+
+  .navbar-user {
+    display: none;
+  }
+
+  .navbar-links {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .nav-btn {
+    flex-direction: column;
+    gap: 4px;
+
+    font-size: 12px;
+
+    padding: 10px;
+
+    min-width: 70px;
+  }
 }

@@ -1,108 +1,75 @@
-.workout-container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 .workout-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-  background: var(--bg-tarjetas);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: var(--sombra-relieve);
-}
+  border-radius: 24px;
 
-.workout-main-title {
-  margin: 0;
-  color: var(--texto-blanco);
+  padding: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #181f2b,
+      #131922
+    );
 }
 
 .timer {
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--color-marca); 
-}
+  font-size: 40px;
 
-.add-exercise-section {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 25px;
+  color: #ff6b00;
+
+  font-weight: 800;
 }
 
 .exercise-input {
-  flex: 1;
-  background: var(--bg-inputs);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: var(--texto-blanco);
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 15px;
-  transition: all 0.2s;
-}
+  border-radius: 18px;
 
-.exercise-input:focus {
-  outline: none;
-  border-color: var(--color-marca);
-  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
+  height: 56px;
 }
 
 .btn-add {
-  background: transparent;
-  color: var(--color-marca);
-  border: 2px solid var(--color-marca);
-  font-weight: bold;
-  padding: 0 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-add:hover {
-  background: var(--color-marca);
-  color: white;
-  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
-}
-
-.workout-actions-footer {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
+  border-radius: 18px;
 }
 
 .btn-finish {
-  flex: 1;
-  background: linear-gradient(135deg, var(--color-marca), #ff8800);
-  color: white;
-  border: none;
-  padding: 14px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
-  transition: all 0.2s ease;
-}
+  border-radius: 18px;
 
-.btn-finish:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
+  height: 60px;
 }
 
 .btn-cancel {
-  background: var(--bg-inputs);
-  color: #ff4d4d;
-  border: 1px solid rgba(255, 77, 77, 0.2);
-  padding: 14px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  border-radius: 18px;
 }
 
-.btn-cancel:hover {
-  background: #ff4d4d;
-  color: white;
+.set-row-container {
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 60px 60px;
+    gap: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .set-row-container {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 768px) {
+
+  .workout-container {
+    padding: 10px;
+  }
+
+  .add-exercise-section {
+    flex-direction: column;
+  }
+
+  .btn-add {
+    height: 55px;
+  }
+
+  .workout-actions-footer {
+    flex-direction: column;
+  }
+
+  .timer {
+    font-size: 32px;
+  }
 }

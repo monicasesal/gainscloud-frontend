@@ -1,20 +1,20 @@
-/* src/index.css */
-
 :root {
-  --bg-principal: #0d0d11;
-  --bg-tarjetas: #16161f;
-  --bg-inputs: #22222b;
-  --color-marca: #ff6b00;
-  --color-marca-hover: #e05e00;
-  --texto-blanco: #ffffff;
-  --texto-gris: #9ca3af;
-  --sombra-relieve: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-}
+  --bg-principal: #0d1117;
+  --bg-secundario: #131922;
 
-body {
-  background-color: var(--bg-principal);
-  color: var(--texto-blanco);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  margin: 0;
-  padding: 0;
+  --bg-tarjetas: #181f2b;
+  --bg-inputs: #202938;
+
+  --color-marca: #ff6b00;
+  --color-secundario: #1d91f8;
+
+  --texto-blanco: #f8fafc;
+  --texto-gris: #94a3b8;
+
+  --borde-sutil: 1px solid rgba(255,255,255,0.06);
+
+  --sombra-relieve:
+    0 10px 30px rgba(0,0,0,0.35);
+
+  --radio: 22px;
 }

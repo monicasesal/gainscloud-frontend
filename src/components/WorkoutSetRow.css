@@ -1,68 +1,69 @@
 .set-row-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background-color: #111827;
-  padding: 8px 12px;
-  border-radius: 6px;
-  margin-bottom: 8px;
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 60px 60px;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.03);
 }
 
 .set-number {
-  color: #9ca3af;
-  font-weight: bold;
-  width: 24px;
+    color: var(--texto-gris);
+    font-weight: bold;
+    text-align: center;
 }
 
 .set-input-group {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 4px;
+    position: relative;
 }
 
 .set-input {
-  width: 100%;
-  background: #1f2937;
-  border: 1px solid #374151;
-  color: white;
-  padding: 6px;
-  border-radius: 4px;
-  text-align: center;
+    width: 100%;
+    height: 50px;
+    background: var(--bg-inputs);
+    border: none;
+    border-radius: 14px;
+    color: white;
+    padding-left: 15px;
+    font-size: 1rem;
+}
+
+.set-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,107,0,.2);
 }
 
 .set-unit {
-  font-size: 0.8rem;
-  color: #6b7280;
+    position: absolute;
+    right: 12px;
+    top: 15px;
+    color: var(--texto-gris);
+    font-size: .85rem;
 }
 
-.btn-check-set {
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 6px 12px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.2s, transform 0.1s active;
+.btn-check-set,
+.btn-delete-set {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 1.2rem;
 }
 
-.btn-check-set.pending {
-  background-color: #374151;
+.completed {
+    background: #22c55e;
+    color: white;
 }
 
-.btn-check-set.completed {
-  background-color: #10b981;
+.pending {
+    background: rgba(255,255,255,.05);
+    color: white;
 }
 
 .btn-delete-set {
-  background: transparent;
-  border: none;
-  color: #ef4444;
-  cursor: pointer;
-  font-size: 1.1rem;
-  transition: opacity 0.2s;
-}
-
-.btn-delete-set:hover {
-  opacity: 0.7;
+    background: rgba(255,68,68,.15);
+    color: #ff6666;
 }

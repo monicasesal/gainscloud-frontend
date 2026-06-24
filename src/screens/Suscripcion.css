@@ -1,202 +1,89 @@
 .pricing-container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 20px;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1100px;
+    margin: auto;
 }
 
 .pricing-title {
+    text-align: center;
+    color: white;
     font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 10px;
-    transition: font-size 0.2s ease;
 }
 
 .pricing-subtitle {
-    font-size: 1.1rem;
-    color: #7f8c8d;
-    margin-bottom: 40px;
-}
-
-.pricing-alert {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 12px 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-    display: inline-block;
-    font-weight: 600;
-    border: 1px solid #c3e6cb;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-.pricing-alert.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border-color: #f5c6cb;
+    text-align: center;
+    color: var(--texto-gris);
+    margin-bottom: 50px;
 }
 
 .pricing-cards {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
     gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 20px;
 }
 
 .pricing-card {
-    background: #ffffff;
-    border: 2px solid #e2e8f0;
-    border-radius: 16px;
-    padding: 35px 25px;
-    width: 320px;
+    background: var(--bg-tarjetas);
+    border-radius: 30px;
+    padding: 40px;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: var(--sombra-relieve);
 }
 
-.pricing-card:not(.active):hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-}
-
-.pricing-card.active {
-    border-color: #3498db;
-    background-color: #f8fafc;
-    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.15);
-}
-
-.pricing-card.premium-card {
-    border-color: #e2e8f0;
-}
-
-.pricing-card.premium-card.active {
-    border-color: #f1c40f;
-    box-shadow: 0 4px 20px rgba(241, 196, 15, 0.2);
+.premium-card {
+    border: 2px solid var(--color-secundario);
 }
 
 .badge-current {
     position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #3498db;
+    top: -12px;
+    right: 25px;
+    background: var(--color-marca);
     color: white;
-    padding: 4px 12px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    border-radius: 20px;
-    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 30px;
 }
 
-.badge-current.gold {
-    background: #f1c40f;
-    color: #2c3e50;
-}
-
-.pricing-card h3 {
-    font-size: 1.4rem;
-    color: #2c3e50;
-    margin: 10px 0;
-}
-
-.pricing-card .price {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 25px;
-}
-
-.pricing-card .price span {
-    font-size: 1rem;
-    color: #95a5a6;
-    font-weight: normal;
+.price {
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
 }
 
 .pricing-card ul {
-    list-style: none;
     padding: 0;
-    margin: 0 0 30px 0;
-    text-align: left;
-    flex-grow: 1; 
+    list-style: none;
 }
 
 .pricing-card li {
-    padding: 10px 0;
-    color: #555;
-    font-size: 0.95rem;
-    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 14px;
+    color: var(--texto-gris);
 }
 
 .btn-plan {
     width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
+    height: 58px;
     border: none;
-    transition: background 0.2s ease, opacity 0.2s ease;
-}
-
-.free-btn {
-    background: #edf2f7;
-    color: #4a5568;
-}
-
-.free-btn:not(:disabled):hover {
-    background: #e2e8f0;
+    border-radius: 18px;
+    font-weight: bold;
+    margin-top: 25px;
 }
 
 .premium-btn {
-    background: #3498db;
+    background: linear-gradient(
+        135deg,
+        var(--color-secundario),
+        #47a6ff
+    );
     color: white;
 }
 
-.premium-btn:not(:disabled):hover {
-    background: #2980b9;
-}
-
-.pricing-card.active .btn-plan {
-    background: #e2e8f0 !important;
-    color: #94a3b8 !important;
-    cursor: not-allowed;
-    opacity: 0.8;
-}
-
-.btn-plan:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+.free-btn {
+    background: rgba(255,255,255,.05);
+    color: white;
 }
 
 @media (max-width: 768px) {
-    .pricing-container {
-        margin: 20px auto;
-        padding: 10px;
-    }
-
-    .pricing-title {
-        font-size: 1.8rem;
-    }
-
-    .pricing-subtitle {
-        margin-bottom: 25px;
-    }
-
-    .pricing-cards {
-        gap: 20px;
-    }
-
     .pricing-card {
-        width: 100%;
-        max-width: 340px;
-        padding: 25px 20px;
+        padding: 25px;
     }
 }
