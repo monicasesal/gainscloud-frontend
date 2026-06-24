@@ -21,12 +21,15 @@ export default function Suscripcion() {
 
         if (newPlan === 'premium') {
             code = prompt('Para testear el Plan Premium de demostración, introduce el código promocional.')
-        }
 
-        if (code === null) return
-        if (code.trim() === '') {
-            setMensaje('Error: el código promocional es obligatorio para el plan Premium')
-            return
+            if (code === null) return
+            if (code.trim() === '') {
+                setMensaje('Error: el código promocional es obligatorio para el plan Premium')
+                return
+            }
+        } else {
+            //si vuelve a free, pasar el código correcto por defecto para que el back no salte por el filtro de seguridad, ya que para bajar a free no necesito poner el código
+            code = 'GAINSCLOUD2026'
         }
 
         setLoading(true)
@@ -66,7 +69,11 @@ export default function Suscripcion() {
             <h2 className="pricing-title">Mejora tu rendimiento en GainsCloud</h2>
             <p className="pricing-subtitle">Gestiona tu suscripción simulada para testear la aplicación</p>
 
-            {mensaje && <div className="pricing-alert">{mensaje}</div>}
+            {mensaje && (
+                <div className={`pricing-alert ${mensaje.startsWith('Error') ? 'error' : ''}`}>
+                    {mensaje}
+                </div>
+            )}
 
             <div className="pricing-cards">
                 {/* Tarjeta Free */}
