@@ -30,7 +30,7 @@ export default function PlanCard({type, title, price, features, isCurrent, loadi
             </ul>
             
             <button 
-                disabled={loading}
+                disabled={loading || isCurrent}
                 onClick={() => onPlanSelect(type)}
                 className={`btn-plan ${type === 'free' ? 'free-btn' : 'premium-btn'}`}
             >

@@ -11,7 +11,6 @@ import Perfil from './screens/Perfil'
 import Coach from './screens/Coach' 
 import Suscripcion from './screens/Suscripcion'
 import logoImg from './assets/logo.png'
-
 import './App.css'
 
 export default function App() {

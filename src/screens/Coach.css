@@ -1,81 +1,141 @@
 .coach-container {
     display: flex;
     justify-content: center;
-    padding: 30px;
+    padding: 40px 20px;
 }
 
 .coach-card {
     width: 100%;
-    max-width: 850px;
-    background: var(--bg-tarjetas);
-    border-radius: 30px;
+    max-width: 900px;
+    background: linear-gradient(145deg, #181f2b, #121722);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 28px;
     padding: 40px;
-    box-shadow: var(--sombra-relieve);
+    box-shadow: 0 20px 60px rgba(0,0,0,.4);
 }
 
+/* HEADER */
 .coach-header {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
+    margin-bottom: 10px;
 }
 
 .coach-icon {
-    font-size: 3rem;
+    font-size: 2.2rem;
 }
 
 .coach-title {
+    font-size: 1.8rem;
+    font-weight: 800;
     color: white;
 }
 
+/* SUBTITLE */
 .coach-subtitle {
-    color: var(--texto-gris);
-    line-height: 1.7;
-    margin: 25px 0;
+    color: #9aa4b2;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 20px 0 30px 0;
 }
 
-.coach-button,
-.unlock-premium-btn {
-    width: 100%;
-    height: 58px;
-    border: none;
-    border-radius: 18px;
-    font-weight: bold;
+/* BOTÓN SECUNDARIO */
+.btn-go-to-subscription {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,.08);
+    color: #cbd5e1;
+    padding: 12px 16px;
+    border-radius: 14px;
     cursor: pointer;
+    margin-bottom: 20px;
+    transition: all .2s;
 }
 
-.coach-button {
-    background: linear-gradient(
-        135deg,
-        var(--color-secundario),
-        #47a6ff
-    );
+.btn-go-to-subscription:hover {
+    background: rgba(255,255,255,.05);
+    border-color: rgba(255,140,0,.4);
     color: white;
 }
 
-.unlock-premium-btn {
-    background: linear-gradient(
-        135deg,
-        var(--color-marca),
-        #ff8c00
-    );
-    color: white;
-}
-
-.premium-lock-container,
-.coach-feedback-container {
+/* BLOQUE PREMIUM */
+.premium-lock-container {
     margin-top: 30px;
     padding: 30px;
     border-radius: 22px;
     background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.05);
+    text-align: center;
+}
+
+.lock-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.premium-lock-container h3 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.premium-lock-container p {
+    color: #9aa4b2;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* BOTONES */
+.coach-button,
+.unlock-premium-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    margin-top: 20px;
+}
+
+.coach-button {
+    background: linear-gradient(135deg, #ff6b00, #ff8c00);
+    color: white;
+}
+
+.unlock-premium-btn {
+    background: linear-gradient(135deg, #ff6b00, #ff8c00);
+    color: white;
+}
+
+/* FEEDBACK */
+.coach-feedback-container {
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.05);
+}
+
+.coach-feedback-title {
+    color: white;
+    margin-bottom: 12px;
 }
 
 .coach-feedback-text {
-    color: #d9e1ea;
-    line-height: 1.8;
+    color: #d1d5db;
+    line-height: 1.7;
 }
 
-@media (max-width: 768px) {
-    .coach-card {
-        padding: 25px;
-    }
+/* MSJ ERROR */
+.coach-error-text {
+    background: rgba(255, 80, 80, 0.12);
+    border: 1px solid rgba(255, 80, 80, 0.25);
+    color: #ff6b6b;
+
+    padding: 14px 16px;
+    border-radius: 14px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    margin-top: 15px;
 }
