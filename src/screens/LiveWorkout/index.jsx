@@ -9,24 +9,52 @@ export default function LiveWorkout() {
     const navigate = useNavigate()
 
     const [seconds, setSeconds] = useState(0)
-    const [exercises, setExercises] = useState([])
+    
+    //Inicializar el estado leyendo directamente de LocalStorage si ya había datos guardados
+    const [exercises, setExercises] = useState(() => {
+        const savedExercises = localStorage.getItem(`workout_exercises_${workoutLogId}`)
+        return savedExercises ? JSON.parse(savedExercises) : []
+    })
+    
     const [newExerciseName, setNewExerciseName] = useState('')
     const [catalog, setCatalog] = useState([])
 
-    //Cronómetro en vivo
-    useEffect(() => { 
-        const interval = setInterval(() => {
-            setSeconds(prev => prev + 1)
-        }, 1000)
-        return () => clearInterval(interval)
-    }, [])
+    //Effect para guardar AUTOMÁTICAMENTE los ejercicios en LocalStorage cada vez que cambien
+    useEffect(() => {
+        localStorage.setItem(`workout_exercises_${workoutLogId}`, JSON.stringify(exercises));
+    }, [exercises, workoutLogId])
 
-    //Cargar el catálogo de ejercicios al entrar en la pantalla
+    // Cronómetro persistente con LocalStorage
+    useEffect(() => { 
+        const storageKey = `workout_start_time_${workoutLogId}`
+        let startTime = localStorage.getItem(storageKey)
+
+        if (!startTime) {
+            startTime = Date.now().toString()
+            localStorage.setItem(storageKey, startTime)
+        }
+
+        const calculateElapsed = () => {
+            const start = parseInt(startTime, 10)
+            const now = Date.now()
+            const elapsedSeconds = Math.floor((now - start) / 1000)
+            setSeconds(elapsedSeconds > 0 ? elapsedSeconds : 0)
+        }
+
+        calculateElapsed()
+
+        const interval = setInterval(() => {
+            calculateElapsed()
+        }, 1000)
+
+        return () => clearInterval(interval)
+    }, [workoutLogId])
+
+    // Cargar el catálogo de ejercicios al entrar en la pantalla
     useEffect(() => {
         const loadCatalog = async () => {
             try {
                 const data = await workoutService.getExerciseCatalog()
-                // si lo que viene del back es un array lo setea, si no, deja array vacío para que no rompa el .map
                 setCatalog(Array.isArray(data) ? data : [])
             } catch (error) {
                 setCatalog([]) 
@@ -42,7 +70,7 @@ export default function LiveWorkout() {
         return `${hrs}:${mins}:${secs}`
     }
 
-    //Operaciones lógicas del estado (Cero lag, todo local en memoria + guardado)
+    // Operaciones lógicas del estado (Guardado local automático gracias al useEffect superior)
     const handleAddExercise = async (e) => {
         e.preventDefault()
         if (!newExerciseName.trim()) return
@@ -53,7 +81,6 @@ export default function LiveWorkout() {
         try {
             if (!existsInCatalog) {
                 await workoutService.createExercise(nameTrimmed)
-                
                 setCatalog(prev => [...prev, { id: Date.now(), name: nameTrimmed }])
                 console.log('¡Ejercicio personalizado guardado en la BD con su user_id real!')
             }
@@ -74,56 +101,57 @@ export default function LiveWorkout() {
     }
 
     const handleUpdateSet = async (exerciseId, setId, updatedFields) => {
-        const currentExercise = exercises.find(ex => ex.id === exerciseId);
-        if (!currentExercise) return;
+        const currentExercise = exercises.find(ex => ex.id === exerciseId)
+        if (!currentExercise) return
         
-        const currentSet = currentExercise.sets.find(s => s.id === setId);
-        if (!currentSet) return;
+        const currentSet = currentExercise.sets.find(s => s.id === setId)
+        if (!currentSet) return
 
-        const finalWeight = updatedFields.weight !== undefined ? updatedFields.weight : currentSet.weight;
-        const finalReps = updatedFields.reps !== undefined ? updatedFields.reps : currentSet.reps;
-        const finalIsCompleted = updatedFields.isCompleted !== undefined ? updatedFields.isCompleted : currentSet.isCompleted;
+        const finalWeight = updatedFields.weight !== undefined ? updatedFields.weight : currentSet.weight
+        const finalReps = updatedFields.reps !== undefined ? updatedFields.reps : currentSet.reps
+        const finalIsCompleted = updatedFields.isCompleted !== undefined ? updatedFields.isCompleted : currentSet.isCompleted
 
+        // Actualizar primero el estado visual
         setExercises(prev => prev.map(ex => {
-            if (ex.id !== exerciseId) return ex;
+            if (ex.id !== exerciseId) return ex
             return {
-            ...ex,
-            sets: ex.sets.map(s => s.id === setId ? { ...s, ...updatedFields } : s)
-            };
-        }));
+                ...ex,
+                sets: ex.sets.map(s => s.id === setId ? { ...s, ...updatedFields } : s)
+            }
+        }))
 
+        // Sincronizar con el Backend si se marca como completado
         if (finalIsCompleted === true) {
             try {            
-            const data = await workoutService.logSet({
-                workout_log_id: Number(workoutLogId),
-                exercise_name: currentExercise.name,
-                weight: finalWeight,
-                reps: finalReps,
-                is_completed: 1
-            });
-            
-            console.log(`¡Guardado con éxito en set_logs!`);
+                const data = await workoutService.logSet({
+                    workout_log_id: Number(workoutLogId),
+                    exercise_name: currentExercise.name,
+                    weight: finalWeight,
+                    reps: finalReps,
+                    is_completed: 1
+                })
+                
 
-            if (data && data.setId) {
-                setExercises(prev => prev.map(ex=> {
+                if (data && data.setId) {
+                    setExercises(prev => prev.map(ex=> {
+                        if (ex.id !== exerciseId) return ex
+                        return {
+                            ...ex,
+                            sets: ex.sets.map(s=>s.id === setId ? {...s, id: data.setId} : s)
+                        }
+                    }))
+                }
+
+            } catch (error) {
+                alert('Error al guardar la serie en el servidor: ' + error.message)
+                
+                setExercises(prev => prev.map(ex => {
                     if (ex.id !== exerciseId) return ex
                     return {
                         ...ex,
-                        sets: ex.sets.map(s=>s.id === setId ? {...s, id: data.setId} : s)
+                        sets: ex.sets.map(s => s.id === setId ? { ...s, isCompleted: false } : s)
                     }
                 }))
-            }
-
-            } catch (error) {
-                alert('Error al guardar la serie en el servidor: ' + error.message);
-                
-                setExercises(prev => prev.map(ex => {
-                    if (ex.id !== exerciseId) return ex;
-                    return {
-                    ...ex,
-                    sets: ex.sets.map(s => s.id === setId ? { ...s, isCompleted: false } : s)
-                    };
-                }));
             }
         }
     }
@@ -169,10 +197,17 @@ export default function LiveWorkout() {
         setExercises(exercises.filter(ex=>ex.id !== exerciseId))
     }
 
-    //Finalizar y sincronizar con el Backend
+    // Limpieza TOTAL de la sesión al terminar o cancelar
+    const cleanWorkoutStorage = () => {
+        localStorage.removeItem(`workout_start_time_${workoutLogId}`);
+        localStorage.removeItem(`workout_exercises_${workoutLogId}`);
+    }
+
+    // Finalizar y sincronizar con el Backend
     const handleFinishWorkout = async () => {
         try {
             await workoutService.finishWorkout(workoutLogId)
+            cleanWorkoutStorage()
             alert('Entrenamiento guardado con éxito')
             navigate('/dashboard')
         } catch (error) {
@@ -184,6 +219,7 @@ export default function LiveWorkout() {
     const handleCancelWorkout = async () => {
         try {
             await workoutService.deleteWorkout(workoutLogId)
+            cleanWorkoutStorage(); 
             navigate('/dashboard')
         } catch (error) {
             alert('Error al cancelar el entrenamiento: ' + error.message)
@@ -200,7 +236,7 @@ export default function LiveWorkout() {
                 <div className='timer'>{formatTime(seconds)}</div>
             </div>
 
-            {/*Buscador de ejercicios con sugerencias dinámicas*/}
+            {/* Buscador de ejercicios */}
             <form onSubmit={handleAddExercise} className='add-exercise-section'>
                 <input 
                     type="text"
@@ -212,7 +248,6 @@ export default function LiveWorkout() {
                     autoComplete='off'
                 />
 
-                {/*desplegable*/}
                 <datalist id="exercise-catalog">
                     {catalog.map(item => (
                         <option key={item.id} value={item.name} />
@@ -222,7 +257,7 @@ export default function LiveWorkout() {
                 <button type='submit' className='btn-add'>+ Añadir</button>
             </form>
 
-            {/*Listado de tarjetas de ejercicios*/}
+            {/* Listado de tarjetas de ejercicios */}
             <div className='exercises-list'>
                 {exercises.map(ex => (
                     <ExerciseCard 
@@ -236,7 +271,7 @@ export default function LiveWorkout() {
                 ))}
             </div>
 
-            {/*Botón de cierre definitivo*/}
+            {/* Botón de cierre definitivo */}
             {exercises.length >= 0 && (
                 <div className='workout-actions-footer'>
                     <button type="button" onClick={handleCancelWorkout} className='btn-cancel'>
