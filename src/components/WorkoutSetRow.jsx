@@ -5,6 +5,9 @@ import './WorkoutSetRow.css'
 
 export default function WorkoutSetRow({set, index, onUpdateSet, onDeleteSet}) {
     const handleChange = (field, value) => {
+        if (field === 'weight' && value < 0) value = 0
+        if (field === 'reps' && value < 0) value = 0
+
         onUpdateSet(set.id, {[field]: value})
     }
 
@@ -17,9 +20,13 @@ export default function WorkoutSetRow({set, index, onUpdateSet, onDeleteSet}) {
             <div className='set-input-group'>
                 <input 
                     type="number" 
+                    min="0"
                     placeholder='0'
                     value={set.weight || ''}
-                    onChange={(e) => handleChange('weight', parseFloat(e.target.value) || 0)}
+                    onChange={(e) => {
+                        const val = parseFloat(e.target.value)
+                        handleChange('weight', isNaN(val) ? 0 : val)
+                    }}
                     className='set-input'
                 />
                 <span className='set-unit'>kg</span>
@@ -29,9 +36,13 @@ export default function WorkoutSetRow({set, index, onUpdateSet, onDeleteSet}) {
             <div className='set-input-group'>
                 <input 
                     type="number" 
+                    min="1"
                     placeholder='0'
                     value={set.reps || ''}
-                    onChange={(e) => handleChange('reps', parseInt(e.target.value) || 0)}
+                    onChange={(e) => {
+                        const val = parseInt(e.target.value, 10)
+                        handleChange('reps', isNaN(val) ? 0 : val)
+                    }}
                     className='set-input'
                 />
                 <span className='set-unit '>reps</span>

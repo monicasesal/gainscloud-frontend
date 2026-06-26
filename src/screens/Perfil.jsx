@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { authService, userService } from '../services/api' // Asegúrate de importar el userService
+import { authService, userService } from '../services/api'
 import './Perfil.css'
 
 export default function Perfil() {
@@ -11,7 +11,7 @@ export default function Perfil() {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
-    //Estados para la edición del peso
+    // Estados para la edición del peso
     const [isEditing, setIsEditing] = useState(false)
     const [weightInput, setWeightInput] = useState('')
     const [isSaving, setIsSaving] = useState(false)
@@ -47,7 +47,7 @@ export default function Perfil() {
             setIsSaving(true)
             await userService.updateWeight(parseFloat(weightInput))
             
-            // Actualir el estado local para que se vea el cambio sin recargar la página
+            // Actualizar el estado local para que se vea el cambio sin recargar la página
             setProfile(prev => ({ ...prev, weight: weightInput }))
             setIsEditing(false)
             alert('Peso corporal actualizado con éxito')
@@ -90,8 +90,17 @@ export default function Perfil() {
                             <div className="weight-edit-box">
                                 <input 
                                     type="number" 
+                                    min="0.1"
                                     value={weightInput}
-                                    onChange={(e) => setWeightInput(e.target.value)}
+                                    onChange={(e) => {
+                                        const val = e.target.value
+                                        
+                                        if (parseFloat(val) < 0) {
+                                            setWeightInput('0');
+                                        } else {
+                                            setWeightInput(val);
+                                        }
+                                    }}
                                     placeholder="ej: 75.5"
                                     step="0.1"
                                     className="profile-weight-input"

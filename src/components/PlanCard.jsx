@@ -20,7 +20,7 @@ export default function PlanCard({type, title, price, features, isCurrent, loadi
                 </span>
             )}
             
-            <h3>{title}</h3>
+            <h3 className='card-title'>{title}</h3>
             <p className="price">{price}</p>
             
             <ul>
